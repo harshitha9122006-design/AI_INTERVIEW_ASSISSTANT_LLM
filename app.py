@@ -15,7 +15,7 @@ model=st.selectbox('Model',['openai/gpt-oss-120b', 'openai/gpt-oss-safeguard-20b
 level=st.selectbox('Difficulty',['Beginner','Intermediate','Advanced'])
 mode=st.radio('Activity',['Generate questions','Generate code questions','Evaluate answers','Improve answers'])
 if mode=='Generate questions':
-  count=st.slider(Number of questions",1,10,5)
+  count=st.slider("Number of questions",1,10,5)
 elif mode=='Generate code questions':
   topic=st.selectbox('Topics',['sql','Aiml','Python','Dsa','C++','C','Java','PHP','DevOps','Web development','Cyber security'])
   count=st.slider("Number of Questions",1,10,5)
