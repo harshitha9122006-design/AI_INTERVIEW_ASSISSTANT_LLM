@@ -1,4 +1,4 @@
-MOimport streamlit as st
+import streamlit as st
 from groq import Groq
 st.set_page_config(page_title="PLACEMENT PREPARATION",page_icon="😍",layout="centered")
 st.title("AI_INTERVIEW_ASSISTANT")
@@ -11,4 +11,6 @@ except(Keyerror, FileNotFound):
 role=st.selectbox('Job Title',['Machine learning engineer','Deveops engineer','Prompt engineer','Senior software engineer','Others'])
 if role=="Others":
   st.text_input("Enter you job title","XXXXXX")
-model=st.selectbox('Model'['openai/gpt-oss-120b'])
+model=st.selectbox('Model'['openai/gpt-oss-120b','openai/gpt-oss-safeguard-20b'])
+level=st.selectbox('Difficulty',['Beginner','Intermediate','Advanced'])
+mode=st.radio('Activity',['Generate questions','Generate code questions','Evaluate answers','Improve answers'])
