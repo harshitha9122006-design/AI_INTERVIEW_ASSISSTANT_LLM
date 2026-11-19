@@ -38,20 +38,19 @@ elif mode=="Improve answers":
    task="Question: "+question+"My answers"+answer+"Improve anwer based on choice of words,key words,accuracy,concept,relevant,better explaination and choice of words"
 background="Job role: "+role+"Difficulty level :"+level
 with st.spinner("Generating your answer..."):
-  try:
-    response=client.chat.completions.create(
-      model=gen_model,
-      messages=[{"role":"system","content":"You are an expert technical interviewer"},
-                {"role":"user",
-                "content":background+task}],
-      temperature=0.7,
-      max_tokens=2000
-    )
-    output=respone.choices[0].message.content
-    st.subheader("AI Response:")
-    st.markdown(output)
-    st.download_button("Download response",output,file_name="Interview_Response",mime='text/plain')
+    try:
+        response=client.chat.completions.create(
+            model=gen_model,
+            messages=[{"role":"system","content":"You are an expert technical interviewer"},
+                      {"role":"user","content":background+task}],
+            temperature=0.7,
+            max_tokens=2000
+        )
+        output=response.choices[0].message.content
+        st.subheader("AI Response:")
+        st.markdown(output)
+        st.download_button("Download response",output,file_name="Interview_Response.txt")
     except Exception as e:
-        st.error("API connection was unsuccessfull")
+        st.error("API connection was unsuccessful")
         st.info("Please check your API key and rate limits")
-      st.caption("powered by streamlit.io and Github.Using LLM API")
+st.caption("powered by streamlit.io and Github.Using LLM API")
